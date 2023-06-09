@@ -213,10 +213,7 @@ solve poisson(u,v) = (u,v を含む) 式
 `poisson`は問題の名前を表し，適当にわかりやすい名前に設定する．
 
 弱形式の左辺
-$$ \int_\Omega \nabla u_h \cdot \nabla v_h dx 
- = \int_\Omega \left( 
- \partial_x u_h \partial_x v_h 
- + \partial_y u_h \partial_y v_h \right)  dx  $$
+$$ \int_\Omega \nabla u_h \cdot \nabla v_h dx = \int_\Omega \left(\partial_x u_h \partial_x v_h + \partial_y u_h \partial_y v_h \right) dx  $$
 は FreeFEMでは
 ```
 int2d(Th)(dx(u)*dx(v) + dy(u)*dy(v))
