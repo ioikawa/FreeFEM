@@ -314,7 +314,7 @@ $L^2$誤差
 \|u - u_h\|_{L^2(\Omega)} = \left( \int_\Omega (u-u_h)^2 dx \right)^{1/2} ```
 
 の計算コード例：
-```c
+```python
 func uex = sin(pi*x)*sin(pi*y);        //厳密解
 real l2err;
 l2err = sqrt(int2d(Th)((uex-u)^2));
