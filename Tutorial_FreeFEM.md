@@ -168,6 +168,13 @@ $$
  u &= g \text{ on } \partial\Omega.
 \end{align}
 $$
+
+```math
+\begin{align}
+ -\Delta u &= f \text{ in } \Omega, \\
+ u &= g \text{ on } \partial\Omega.
+\end{align}
+```
 ただし，$f,g$ は与えられた関数である．
 ここでは簡単のために $g\equiv 0$とする．
 
