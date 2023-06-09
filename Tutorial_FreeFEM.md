@@ -297,6 +297,7 @@ $H^1$誤差
 ```math
 |u - u_h|_{H^1(\Omega)} = \left( \int_\Omega [(\partial_x (u-u_h))^2+(\partial_y (u-u_h))^2] dx \right)^{1/2}
 ```
+
 を計算するコード例：
 ```
 func dxuex = pi*cos(pi*x)*sin(pi*y);        
