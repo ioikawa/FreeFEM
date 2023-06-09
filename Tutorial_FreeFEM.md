@@ -316,7 +316,7 @@ $L^2$誤差
 ```
 
 の計算コード例：
-```python
+```c
 func uex = sin(pi*x)*sin(pi*y);        //厳密解
 real l2err;
 l2err = sqrt(int2d(Th)((uex-u)^2));
