@@ -162,12 +162,6 @@ FreeFEMでは有名な有限要素空間があらかじめ用意されている�
 
 ### Poisson方程式
 Poisson方程式のDirichlet境界値問題を考える．
-$$
-\begin{align}
- -\Delta u &= f \text{ in } \Omega, \\
- u &= g \text{ on } \partial\Omega.
-\end{align}
-$$
 
 ```math
 \begin{align}
@@ -181,10 +175,7 @@ $$
 $V_h \subset H_0^1(\Omega)$を有限次元の部分空間とする．
 有限要素解は次で定義される：
 Find $u_h \in V_h$ such that 
-$$
-   \int_\Omega \nabla u_h \cdot \nabla v_h dx = \int_\Omega fv_h dx
-   \quad \forall v_h \in V_h.
-$$
+$$ \int_\Omega \nabla u_h \cdot \nabla v_h dx = \int_\Omega fv_h dx   \quad \forall v_h \in V_h.  $$
 
 ここでは例として，次をテスト問題として考える．
 
@@ -192,9 +183,7 @@ $$
  - $f(x,y) = 2\pi^2\sin(\pi x)\sin(\pi y)$
 
 このとき，厳密解は
-$$
-  u(x,y) = \sin(\pi x)\sin(\pi y)
-$$
+$$ u(x,y) = \sin(\pi x)\sin(\pi y) $$
 となる．
 
 #### FreeFEMコードの例
@@ -224,12 +213,10 @@ solve poisson(u,v) = (u,v を含む) 式
 `poisson`は問題の名前を表し，適当にわかりやすい名前に設定する．
 
 弱形式の左辺
-$$ 
-\int_\Omega \nabla u_h \cdot \nabla v_h dx 
+$$ \int_\Omega \nabla u_h \cdot \nabla v_h dx 
  = \int_\Omega \left( 
  \partial_x u_h \partial_x v_h 
- + \partial_y u_h \partial_y v_h \right)  dx 
-$$
+ + \partial_y u_h \partial_y v_h \right)  dx  $$
 は FreeFEMでは
 ```
 int2d(Th)(dx(u)*dx(v) + dy(u)*dy(v))
@@ -309,9 +296,7 @@ plot(u, fill=true, dim=3);
 厳密解を$u$, 有限要素解を$u_h$とする．
 ### $H^1$ 誤差の計算
 $H^1$誤差
-$$
-|u - u_h|_{H^1(\Omega)} = \left( \int_\Omega [(\partial_x (u-u_h))^2+(\partial_y (u-u_h))^2] dx \right)^{1/2}
-$$
+$$ |u - u_h|_{H^1(\Omega)} = \left( \int_\Omega [(\partial_x (u-u_h))^2+(\partial_y (u-u_h))^2] dx \right)^{1/2} $$
 を計算するコード例：
 ```
 func dxuex = pi*cos(pi*x)*sin(pi*y);        
@@ -324,9 +309,7 @@ cout << "H1-error: " << h1err << endl;
 
 ### $L^2$ 誤差の計算
 $L^2$誤差
-$$ 
-\|u - u_h\|_{L^2(\Omega)} = \left( \int_\Omega (u-u_h)^2 dx \right)^{1/2}
-$$
+$$ \|u - u_h\|_{L^2(\Omega)} = \left( \int_\Omega (u-u_h)^2 dx \right)^{1/2} $$
 の計算コード例：
 ```
 func uex = sin(pi*x)*sin(pi*y);        //厳密解
@@ -370,9 +353,7 @@ $ FreeFem++ -ne meshsize.edp
 ここでは $\mathcal{T}_h$, $\mathcal{T}_{h'}$は
 それぞれ $40\times 40$分割，$80\times 80$分割の一様な三角形分割とする．メッシュサイズは$h=\sqrt{2}/40$, $h' = h/2 = \sqrt{2}/80$である．
 これらのメッシュサイズと誤差から，
-$$
-  \frac{\log\|e_h\|- \log \|e_{h'}\|}{\log h - \log  h'} =   \frac{\log(\|e_h\|/\|e_{h'}\|)}{\log(h/h')}
-$$
+$$  \frac{\log\|e_h\|- \log \|e_{h'}\|}{\log h - \log  h'} =   \frac{\log(\|e_h\|/\|e_{h'}\|)}{\log(h/h')} $$
 を計算し，これを収束次数（の推定値）とする．ここで$\|\cdot\|$は適当なノルムとする．
 
 
