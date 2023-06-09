@@ -83,7 +83,7 @@ FreeFem++ -ne hello.edp
 
 領域が単位正方形の場合は `square(nx, ny)`で
 直角三角形による一様な分割が得られる．正確には，
-$x$軸方向と$y$軸方向へそれぞれ `nx` 個,
+$x$ 軸方向と $y$ 軸方向へそれぞれ `nx` 個,
 `ny` 個に等分割して得られる格子をどちらか右斜（あるいは左斜め）に対角線を引いた三角形分割  (Friedrichs--Keller triangulation) が生成される．
 ```
 // square.edp
