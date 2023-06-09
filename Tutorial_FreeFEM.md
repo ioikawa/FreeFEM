@@ -92,7 +92,8 @@ mesh Th = square(nx, ny);
 plot(Th);  // display the mesh
 ```
 上記のサンプルコードを実行し，下にあるような一様メッシュが表示されることを確認しよう．
- <img src="mesh-square.png" width="30%">
+
+ <img src="mesh-square.png" width="20%">
 
 
 ## 境界のラベル
@@ -184,9 +185,9 @@ $$
  - $f(x,y) = 2\pi^2\sin(\pi x)\sin(\pi y)$
 
 このとき，厳密解は
-$
+$$
   u(x,y) = \sin(\pi x)\sin(\pi y)
-$
+$$
 となる．
 
 #### FreeFEMコードの例
