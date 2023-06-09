@@ -294,7 +294,9 @@ plot(u, fill=true, dim=3);
 厳密解を$u$, 有限要素解を$u_h$とする．
 ### $H^1$ 誤差の計算
 $H^1$誤差 
-$$|u - u_h|_{H^1(\Omega)} = \left( \int_\Omega [(\partial_x (u-u_h))^2+(\partial_y (u-u_h))^2] dx \right)^{1/2} $$ 
+```math
+|u - u_h|_{H^1(\Omega)} = \left( \int_\Omega [(\partial_x (u-u_h))^2+(\partial_y (u-u_h))^2] dx \right)^{1/2}
+```
 を計算するコード例：
 ```
 func dxuex = pi*cos(pi*x)*sin(pi*y);        
@@ -307,7 +309,8 @@ cout << "H1-error: " << h1err << endl;
 
 ### $L^2$ 誤差の計算
 $L^2$誤差 
-$$\|u - u_h\|_{L^2(\Omega)} = \left( \int_\Omega (u-u_h)^2 dx \right)^{1/2} $$ 
+```math 
+\|u - u_h\|_{L^2(\Omega)} = \left( \int_\Omega (u-u_h)^2 dx \right)^{1/2} ``` 
 の計算コード例：
 ```
 func uex = sin(pi*x)*sin(pi*y);        //厳密解
