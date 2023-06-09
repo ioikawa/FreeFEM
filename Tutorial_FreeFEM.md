@@ -311,7 +311,9 @@ cout << "H1-error: " << h1err << endl;
 ### $L^2$ 誤差の計算
 $L^2$誤差 
 ```math
-\|u - u_h\|_{L^2(\Omega)} = \left( \int_\Omega (u-u_h)^2 dx \right)^{1/2} ```
+\|u - u_h\|_{L^2(\Omega)} = 
+\left( \int_\Omega (u-u_h)^2 dx \right)^{1/2}
+```
 
 の計算コード例：
 ```python
