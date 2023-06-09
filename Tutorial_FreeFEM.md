@@ -163,10 +163,10 @@ FreeFEMでは有名な有限要素空間があらかじめ用意されている�
 ### Poisson方程式
 Poisson方程式のDirichlet境界値問題を考える．
 $$
-\begin{aligned}
+\begin{align}
  -\Delta u &= f \text{ in } \Omega, \\
  u &= g \text{ on } \partial\Omega.
-\end{aligned}
+\end{align}
 $$
 ただし，$f,g$ は与えられた関数である．
 ここでは簡単のために $g\equiv 0$とする．
