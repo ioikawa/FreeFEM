@@ -365,9 +365,53 @@ $$\frac{\log\|e_h\|- \log \|e_{h'}\|}{\log h - \log  h'} =   \frac{\log(\|e_h\|/
 
 
 # Appendix
-## FreeFEMの変数型
-[公式ドキュメント](https://doc.freefem.org/references/types.html)を参照．
+## FreeFEMの[変数型](https://doc.freefem.org/references/types.html)
+基本的にはC++と同じ．浮動小数点数は`double`ではなくFortran流の`real` なので注意．
 
 - `int`: 整数型
 - `real` :倍精度
-- `complex}: 複素数型．$x+yi$ は \code{x + y*1i`と表す．ただし，$x,y$は実数，$i$は虚数単位．
+- `complex`: 複素数型．$x+yi$ は `x + y*1i` と表す．ただし，$x,y$は実数，$i$は虚数単位．
+
+## FreeFEMの[配列](https://doc.freefem.org/references/types.html#array)
+```
+int n = 10;
+real[int] a(n);
+a[1] = 100;       // 代入
+```
+
+## `func` による関数の定義
+例えば，2変数関数 $f(x,y) = \sin(\pi x)\sin(\pi y)$ を定義するには，
+次のように `func`型オブジェクトとして宣言すればよい．
+```python
+func f = sin(pi*x)*sin(pi*y);
+```
+
+## 出力方法
+ターミナルへの出力は `cout` を用いる． `printf`関数は用意されていないので注意． `cout` に `<<` 演算子で出力したい文字列や変数などを流し込む．
+```python
+cout << "pi = " << pi << endl;
+real a = 22.0/7;     // 22/7 の演算結果は0になってしまうので注意
+cout << a << endl;
+```
+これを実行すると次のように出力される．
+```
+pi = 3.14159
+3.14286
+```
+
+倍精度の仮数部の桁数は約15桁なので，`cout.precision` で
+16桁に設定して出力する．
+```
+cout.precision(16);
+cout << pi << endl;
+
+実行結果: 3.141592653589793
+```
+
+指数表記で出力するには，`cout.scientifc` を用いる．
+```
+cout.scientific;
+cout << 123.456 << endl;
+
+実行結果: 1.234560e+02
+```
