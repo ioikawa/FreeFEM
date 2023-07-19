@@ -419,3 +419,11 @@ cout << 123.456 << endl;
 
 実行結果: 1.234560e+02
 ```
+
+## 関数の補間
+```
+func w = sin(pi*x);
+mesh Th = sqaure(5,5);
+fespace Vh(Th,P1);
+Vh Ihw = w;
+```
