@@ -423,7 +423,8 @@ cout << 123.456 << endl;
 ## 関数の補間
 ```
 func w = sin(pi*x);
-mesh Th = sqaure(5,5);
+mesh Th = square(5,5);
 fespace Vh(Th,P1);
 Vh Ihw = w;
+plot(Ihw,dim=3,fill=true);
 ```
