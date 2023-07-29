@@ -77,3 +77,7 @@ C:\Program Files (x86)\FreeFem++ foo.edp
 ## Segmentation Fault
 - 通常はアクセスできないメモリを参照しようとしたときに発生するエラーです．
 - 例えば，範囲外の配列にアクセスしようとしたときに発生します．
+
+## FreeFem++-js
+- インストールがどうしても上手く行かない人は，オンライン（ブラウザ）上で実行できる[FreeFem++-js](https://www.ljll.math.upmc.fr/lehyaric/ffjs/portable.htm)を使うという手段もあります．
+- 常時使用可能かどうかはわからないので，自分の端末にインストールすることを第一に推奨します．
