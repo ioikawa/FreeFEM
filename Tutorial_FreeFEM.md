@@ -55,6 +55,17 @@ cout << "Hello" << endl;
 
 【注意】FreeFEMでは文字列は `string`型変数として扱われる．
 "こんにちは"のようなマルチバイトの文字列はコンパイルエラーになるので注意．
+```
+-- FreeFem++ v4.5 (Mar 11 fév 2020 09:17:53 CET - git v4.5)
+ Load: lg_fem lg_mesh lg_mesh3 eigenvalue 
+    1 : string s =  Error line number1: End of String could not be found
+  current line = 1
+Compile error : lex:
+	line number :1, 
+error Compile error : lex:
+	line number :1, 
+ code = 1 mpirank: 0
+```
 
 ターミナルに戻って，先程保存したソースファイルを実行しよう．
 ```@bash
