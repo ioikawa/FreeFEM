@@ -5,10 +5,11 @@ Poisson方程式に対して，FreeFEMで有限要素解を計算するところ
 
 ### FreeFEM とは
 - FreeFEM（[公式](https://freefem.org/)）は有限要素法の数値計算を行うためのプログラミング言語である．
-- FreeFEMはその名の通り，open sourceのフリーソフトウェアである．
+- Free and Open source  
 - 言語仕様はC++風．以前はFreeFem++という名前だった．
   
-- FreeFEMでは偏微分方程式の弱形式を記述し，有限要素空間を設定するだけで有限要素解が得られるので大変便利．C++などの汎用言語で0から有限要素法のプログラムを書くのは，労力と時間がかかる．
+- FreeFEMでは偏微分方程式の弱形式を記述し，有限要素空間を設定するだけで有限要素解が得られるので大変便利．
+C++などの汎用言語で0から有限要素法のプログラムを書くのは，労力と時間がかかる．
 
 
 ### 他の有限要素ソフトウェア
@@ -24,8 +25,10 @@ Poisson方程式に対して，FreeFEMで有限要素解を計算するところ
 
 ### FreeFEM-cs に関する注意
 - FreeFEM-cs (https://www.ljll.math.upmc.fr/lehyaric/ffcs/index.htm) 
-というFreeFEM用のIDE(統合開発環境)もかつてはよく利用されていた．IDEはエディタやデバッガなどのプログラムの開発に必要なツール群がひとまとめになったGUIソフトウェアのことである．
-- FreeFEM-csはもはやメンテナンスされていないようなので，FreeFEM-csの使用は非推奨である．少なくとも macOSでは動作しない．Windows 10 では一応動作するようだが，ファイルが保存できない事例があった．
+というFreeFEM用のIDE(統合開発環境)もかつてはよく利用されていた．
+IDEはエディタやデバッガなどのプログラムの開発に必要なツール群がひとまとめになったGUIソフトウェアのこと．
+- FreeFEM-csはメンテナンスされているか不明なので，仕様は非推奨．
+少なくとも macOSでは動作しなかった．Windows 10 では一応動作するようだが，ファイルが保存できない事例があった．
 
 ### 実行確認
 
@@ -40,7 +43,7 @@ cd fftest
 ```
 適当なテキストエディタを起動する．ここでは「メモ帳」を起動する：
 ```
- Notepad hello.edp
+ notepad hello.edp
 ``` 
 以下の内容をコピペして（名前を変更せずに）保存する．
 ```@bash
@@ -71,9 +74,9 @@ error Compile error : lex:
 ```@bash
 FreeFem++ hello.edp 
 ```
-入力コードなど色々表示されるがその中に `Hello` という文字列が確認できればOKである．
+ファイルのコードなど色々表示されるがその中に `Hello` という文字列が確認できればOKである．
 
-表示内容を抑制するには `-ne` オプションを付けて実行する．
+コードの表示を抑制するには `-ne` オプションを付けて実行する．
 ```@bash
 FreeFem++ -ne hello.edp 
 ```
@@ -139,13 +142,13 @@ int n = 5;
 mesh Th = buildmesh(b1(n)+b2(n)+b3(10*n)+b4(n));
 plot(Th,ps="mesh-buildmesh.eps"); // save the mesh in eps format
 ```
-`buildmesh()`の引数は曲線の分割数を表している．
+`buildmesh()`の引数（整数値）は曲線の分割数を表している．
 符号をマイナスにすると曲線の向きが反対になる．
 
 <img src="mesh-buildmesh.jpg" width="30%">
 
 
-\paragraph{注意} FreeFEMでは（大文字の） `N` は外向き単位法線ベクトルを表すので注意．
+- 注意：FreeFEMでは（大文字の） `N` は外向き単位法線ベクトルを表すので注意．
 `int N=5;` などと書いてしまうとコンパイルエラーが発生しないで実行できてしまい，
 予期しない動作になる．
 
@@ -242,9 +245,8 @@ int2d(Th)(dx(u)*dx(v) + dy(u)*dy(v))
 ```
 func f = 2*pi^2*sin(pi*x)*sin(pi*y);
 ```
-FreeFEMでは`x`, `y` はそれぞれ $x$, $y$座標に関する独立変数として定義されている．弱形式の右辺
-$(\int_\Omega fv_h dx)$
-は
+FreeFEMでは`x`, `y` はそれぞれ $x$, $y$ 座標に関する独立変数として定義されている．
+弱形式の右辺 $(\int_\Omega fv_h dx)$ は
 ```
  int2d(Th)(f*v)
 ```
@@ -307,9 +309,10 @@ plot(u, fill=true, dim=3);
  `?` キーを押すと機能一覧が表示される．
 
 ## 誤差の計算 
-厳密解を$u$, 有限要素解を$u_h$とする．
+厳密解を $u$, 有限要素解を $u_h$ とする．
+
 ### $H^1$ 誤差の計算
-$H^1$誤差 
+$H^1$ 誤差 
 ```math
 |u - u_h|_{H^1(\Omega)} = \left( \int_\Omega [(\partial_x (u-u_h))^2+(\partial_y (u-u_h))^2] dx \right)^{1/2}
 ```
@@ -325,7 +328,7 @@ cout << "H1-error: " << h1err << endl;
 
 
 ### $L^2$ 誤差の計算
-$L^2$誤差 
+$L^2$ 誤差 
 ```math
 \|u - u_h\|_{L^2(\Omega)} = 
 \left( \int_\Omega (u-u_h)^2 dx \right)^{1/2}
