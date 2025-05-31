@@ -4,12 +4,11 @@ Poisson方程式に対して，FreeFEMで有限要素解を計算するところ
 ## はじめに
 
 ### FreeFEM とは
-- FreeFEM（[公式](https://freefem.org/)）は有限要素法の数値計算を行うためのプログラミング言語である．
+- FreeFEM（[公式サイト](https://freefem.org/)）は有限要素法の数値計算を行うためのプログラミング言語である．
 - Free and Open source  
 - 言語仕様はC++風．以前はFreeFem++という名前だった．
   
-- FreeFEMでは偏微分方程式の弱形式を記述し，有限要素空間を設定するだけで有限要素解が得られるので大変便利．
-C++などの汎用言語で0から有限要素法のプログラムを書くのは，労力と時間がかかる．
+- FreeFEMでは偏微分方程式の弱形式を記述し，有限要素空間を設定するだけで有限要素解が得られる．
 
 
 ### 他の有限要素ソフトウェア
@@ -21,14 +20,13 @@ C++などの汎用言語で0から有限要素法のプログラムを書くの�
 ### インストール
 [GitHubのページ](http://github.com/FreeFem/FreeFem-sources/releases) 
 からOSにあった最新バージョンのインストーラーをダウンロードして実行する．
-例えば，Windowsの場合は `FreeFEM-4.12-win64.exe`が執筆時点では最新である．
+例えば，Windowsの場合は `FreeFEM-4.15-win64.exe`が執筆時点では最新である．
 
 ### FreeFEM-cs に関する注意
-- FreeFEM-cs (https://www.ljll.math.upmc.fr/lehyaric/ffcs/index.htm) 
+- [FreeFEM-cs](https://www.ljll.fr/lehyaric/ffcs/) 
 というFreeFEM用のIDE(統合開発環境)もかつてはよく利用されていた．
 IDEはエディタやデバッガなどのプログラムの開発に必要なツール群がひとまとめになったGUIソフトウェアのこと．
-- FreeFEM-csはメンテナンスされているか不明なので，仕様は非推奨．
-少なくとも macOSでは動作しなかった．Windows 10 では一応動作するようだが，ファイルが保存できない事例があった．
+- FreeFEM-csについては本講義ではサポートできないので，自己責任で使用してほしい．
 
 ### 実行確認
 
@@ -81,7 +79,7 @@ FreeFem++ hello.edp
 FreeFem++ -ne hello.edp 
 ```
 
-## テキストエディタ
+### テキストエディタ
 テキストエディタは無数に存在する．フリーかつクロスプラットフォームなものに限定すると，以下のソフトウェアがよく使われているようである．
 - [Visual Studio Code](https://code.visualstudio.com/) (GUI)
 - Vim, Emacs (ターミナル上で動くエディタ）
@@ -120,14 +118,13 @@ plot(Th);  // display the mesh
 `square()`の場合は自動的に，下辺→右辺→上辺→左辺（反時計回り）の順に1,2,3,4 
 という整数値のラベルが付く．
 
-### bulidmesh()
+### `bulidmesh()`
 一般の領域に対しては，(i) FreeFEMの`bulidmesh()`を用いる方法と，(ii) Gmshなどのソフトウェアで作成作成したメッシュを読み込む方法，の2種類がある．
 はじめに，`buildmesh()`による方法について説明する．
 
 
-### 領域の境界を定義: border 
-はじめに`border` で
-パラメータ曲線を与える．
+### 領域の境界を定義: `border` 
+はじめに`border`型変数としてパラメータ曲線を与える．
 例として，単位正方形の境界を反時計回りにパラメータ表示する
 
 ```
